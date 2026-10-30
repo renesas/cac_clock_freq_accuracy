@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.11" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README-Doc</title>
+  <style>
+
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+  <style type="text/css">:root {
+--brand: #2b0a8c;
+--accent: #e6007e;
+--ink: #1f2430;
+--muted: #667085;
+--line: #e4e7ec;
+--surface: #f7f7fb;
+}
+* {
+box-sizing: border-box;
+}
+html {
+scroll-behavior: smooth;
+}
+body {
+margin: 0 auto;
+max-width: 1120px;
+padding: 50px;
+color: var(--ink);
+background: #ffffff;
+font-family: "Segoe UI", Arial, sans-serif;
+line-height: 1.65;
+}
+a {
+color: var(--brand);
+}
+a:hover {
+color: var(--accent);
+}
+h1 {
+margin-top: 2.7rem;
+padding-bottom: 0.35rem;
+border-bottom: 2px solid var(--line);
+}
+h2 {
+margin-top: 2.4rem;
+padding-bottom: 0.3rem;
+border-bottom: 1px solid var(--line);
+}
+h3,
+h4,
+h5,
+h6 {
+margin-top: 2rem;
+}
+img {
+display: block;
+max-width: 100%;
+height: auto;
+margin: 1rem auto 0.35rem;
+}
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 1.25rem 0;
+}
+th,
+td {
+border: 1px solid var(--line);
+padding: 0.7rem;
+vertical-align: top;
+}
+th {
+background: var(--surface);
+text-align: left;
+}
+blockquote {
+margin: 1.2rem 0;
+padding: 0.7rem 1rem;
+border-left: 4px solid var(--brand);
+background: var(--surface);
+}
+code {
+font-family: Consolas, "Courier New", monospace;
+}
+pre {
+overflow-x: auto;
+padding: 1rem;
+border-radius: 8px;
+background: var(--surface);
+}
+
+body > h1:first-of-type {
+margin: -50px calc(50% - 50vw) 3rem;
+padding: 3.5rem max(50px, calc((100vw - 1120px) / 2));
+border: 0;
+background: linear-gradient(135deg, #250777, #3e16a3);
+color: #ffffff;
+font-size: clamp(2rem, 5vw, 3.5rem);
+line-height: 1.1;
+}
+@media (max-width: 640px) {
+body {
+padding: 20px;
+}
+body > h1:first-of-type {
+margin-top: -20px;
+padding: 2.5rem 20px;
+}
+}
+</style>
+</head>
+<body>
+<h1 id="cac">CAC</h1>
+<h2 id="1-overview">1. Overview</h2>
+<p>This software building block (SBB) demonstrates the Renesas RA Clock
+Accuracy Circuit (CAC) driver. When the user presses any key in the
+serial terminal, the reference application measures a selected target
+clock against a selected reference clock, reports whether the
+measurement completed within the configured limits, and prints the CAC
+counter value.</p>
+<p>This document applies only to these reference boards:</p>
+<ul>
+<li>FPB-RA2E3</li>
+<li>FPB-RA4E2</li>
+<li>FPB-RA6E2</li>
+<li>FPB-RA8E1</li>
+</ul>
+<h2 id="2-use-case">2. Use Case</h2>
+<p>The SBB demonstrates how to use the CAC peripheral to check the
+accuracy of one MCU clock source relative to another. The configured
+measurement clock is counted during a period derived from the configured
+reference clock. The CAC compares the resulting count against lower and
+upper limits configured in FSP.</p>
+<p>The demonstrated sequence is:</p>
+<ol type="1">
+<li>Initialize the UART console.</li>
+<li>Open the Clock Generation Circuit (CGC) driver.</li>
+<li>Open the CAC driver.</li>
+<li>Start and verify the configured reference and measurement clocks
+when required.</li>
+<li>Wait for a terminal key press.</li>
+<li>Start a CAC measurement.</li>
+<li>Wait for the callback to report measurement completion or an error
+event.</li>
+<li>Read and display the CAC counter value after successful
+completion.</li>
+<li>Stop the measurement and wait for the next command.</li>
+</ol>
+<p>Typical uses include startup clock validation, clock-source
+verification, and integration testing of clock selections and CAC
+thresholds. The supplied files demonstrate the mechanism but do not
+define a product-level clock-safety policy.</p>
+<h2 id="3-software-organization">3. Software Organization</h2>
+<h3 id="31-reusable-sbb-core">3.1 Reusable SBB core</h3>
+<p>The reusable CAC and CGC control logic is contained in:</p>
+<ul>
+<li><code>cac_ep.h</code></li>
+<li><code>cac_ep.c</code></li>
+</ul>
+<p>This layer:</p>
+<ul>
+<li>opens the FSP CGC instance;</li>
+<li>opens the FSP CAC instance;</li>
+<li>determines the configured reference and measurement clocks;</li>
+<li>starts and verifies applicable clock sources;</li>
+<li>starts a CAC measurement;</li>
+<li>waits for notification from the CAC callback;</li>
+<li>reads the CAC counter after a successful measurement;</li>
+<li>maps CAC events to FSP return codes; and</li>
+<li>closes the CAC and CGC instances during cleanup.</li>
+</ul>
+<h3 id="32-demoreference-application">3.2 Demo/reference
+application</h3>
+<p>The terminal-driven demonstration is contained in:</p>
+<ul>
+<li><code>cac_example_app.h</code></li>
+<li><code>cac_example_app.c</code></li>
+</ul>
+<p>This layer is demo-only application code. It initializes the UART
+console, displays the SBB banner and instructions, waits for user input,
+invokes the reusable CAC functions, prints the result, and enters a
+breakpoint trap after a fatal error.</p>
+<p>The supplied source expects <code>hal_entry.c</code> to call:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>cac_example_app_run<span class="op">();</span></span></code></pre></div>
+<p>An integrating application can replace the complete demo layer while
+retaining the reusable core functions.</p>
+<h2 id="4-core-code-behavior">4. Core Code Behavior</h2>
+<h3 id="41-cgc-initialization">4.1 CGC initialization</h3>
+<p><code>cgc_init()</code> opens the generated CGC instance using
+<code>R_CGC_Open()</code>.</p>
+<h3 id="42-cac-initialization-and-clock-preparation">4.2 CAC
+initialization and clock preparation</h3>
+<p><code>cac_init()</code> opens the generated CAC instance and examines
+the reference and measurement clock selections in
+<code>g_cac_cfg</code>.</p>
+<p>For clock sources that require explicit startup, the function maps
+the CAC clock source to its corresponding CGC clock source, starts it
+with <code>R_CGC_ClockStart()</code>, and polls
+<code>R_CGC_ClockCheck()</code> until the clock stabilizes or an
+error/timeout occurs.</p>
+<p>The source does not explicitly start:</p>
+<ul>
+<li>the IWDT clock when selected as a reference or measurement
+clock;</li>
+<li>PCLKB, which the source treats as always running; or</li>
+<li>the external clock when selected as the reference clock.</li>
+</ul>
+<h3 id="43-measurement-operation">4.3 Measurement operation</h3>
+<p><code>cac_measurement_process()</code> performs one measurement:</p>
+<ol type="1">
+<li>Clears the stored event, completion flag, and counter value.</li>
+<li>Calls <code>R_CAC_StartMeasurement()</code>.</li>
+<li>Polls the callback-updated status flag with a
+<code>UINT16_MAX</code> loop-count timeout.</li>
+<li>Handles the received event:
+<ul>
+<li><code>CAC_EVENT_MEASUREMENT_COMPLETE</code>: reads the counter using
+<code>R_CAC_Read()</code> and stops the measurement using
+<code>R_CAC_StopMeasurement()</code>.</li>
+<li><code>CAC_EVENT_FREQUENCY_ERROR</code>: returns
+<code>FSP_ERR_INVALID_CAC_REF_CLOCK</code>.</li>
+<li>any other event: returns <code>FSP_ERR_OVERFLOW</code>.</li>
+</ul></li>
+</ol>
+<h3 id="44-callback">4.4 Callback</h3>
+<p><code>cac_callback()</code> records the FSP CAC event and sets the
+completion flag used by <code>cac_measurement_process()</code>.</p>
+<p>The callback is part of the reusable implementation even though it is
+not declared as a customer-facing function in <code>cac_ep.h</code>. The
+FSP CAC configuration must reference it.</p>
+<h3 id="45-cleanup">4.5 Cleanup</h3>
+<p><code>cac_deinit()</code> and <code>cgc_deinit()</code> close their
+respective generated instances when those instances are open.</p>
+<h2 id="5-public-functions-to-review-first">5. Public Functions to
+Review First</h2>
+<p>The reusable public interface is declared in
+<code>cac_ep.h</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fsp_err_t cgc_init<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>fsp_err_t cac_init<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>fsp_err_t cac_measurement_process<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> cac_deinit<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> cgc_deinit<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<p>Recommended review order:</p>
+<ol type="1">
+<li><code>cac_init()</code> to understand selection and startup of the
+configured clocks.</li>
+<li><code>cac_measurement_process()</code> to understand measurement,
+callback synchronization, event handling, and result reading.</li>
+<li><code>cgc_init()</code> to understand the CGC dependency.</li>
+<li><code>cac_deinit()</code> and <code>cgc_deinit()</code> to
+understand cleanup.</li>
+</ol>
+<p>The demo/reference application exposes:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> cac_example_app_run<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<p>Use this entry point only when running the supplied terminal
+demonstration.</p>
+<p>The completed measurement count is exposed as:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">extern</span> <span class="dt">uint32_t</span> g_cac_counter_val<span class="op">;</span></span></code></pre></div>
+<h2 id="6-reference-board-assumptions">6. Reference Board
+Assumptions</h2>
+<h3 id="61-supported-boards-in-this-document">6.1 Supported boards in
+this document</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Board</th>
+<th>Documented hardware setup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FPB-RA2E3</td>
+<td>Connect the USB debug port to the host PC. Close E25, E28, E46, and
+E47 to use J-Link OB VCOM for the serial terminal.</td>
+</tr>
+<tr>
+<td>FPB-RA4E2</td>
+<td>Connect the USB debug port to the host PC. The supplied README
+specifies no additional board-level connection.</td>
+</tr>
+<tr>
+<td>FPB-RA6E2</td>
+<td>Connect the USB debug port to the host PC. The supplied README
+specifies no additional board-level connection.</td>
+</tr>
+<tr>
+<td>FPB-RA8E1</td>
+<td>Connect the USB debug port to the host PC. The supplied README
+specifies no additional board-level connection.</td>
+</tr>
+</tbody>
+</table>
+<p>The USB cable type depends on the board model.</p>
+<h3 id="62-fsp-generated-instances">6.2 FSP-generated instances</h3>
+<p>The core source assumes that <code>hal_data.h</code> provides these
+configured FSP objects:</p>
+<ul>
+<li><code>g_cgc_ctrl</code></li>
+<li><code>g_cgc_cfg</code></li>
+<li><code>g_cac_ctrl</code></li>
+<li><code>g_cac_cfg</code></li>
+</ul>
+<p>The CAC configuration supplies the reference clock, measurement
+clock, divisors, lower and upper limits, interrupt configuration, and
+callback association used by the source.</p>
+<h3 id="63-clock-availability">6.3 Clock availability</h3>
+<p>Before selecting the Main clock or Sub-clock, confirm that the
+oscillator is available on the selected reference board. The source
+cannot make unavailable board hardware operational.</p>
+<p>Clock frequencies should be checked in the FSP configurator
+<strong>Clocks</strong> tab or in the user manual for the selected board
+or MCU.</p>
+<h3 id="64-terminal-settings">6.4 Terminal settings</h3>
+<p>The reference application uses the J-Link on-board virtual COM port
+and expects:</p>
+<ul>
+<li>Speed: 115200 baud</li>
+<li>Data: 8 bits</li>
+<li>Parity: none</li>
+<li>Stop bits: 1</li>
+<li>Flow control: none</li>
+<li>Receive newline: CR</li>
+<li>Transmit newline: CR</li>
+<li>Local echo: enabled</li>
+</ul>
+<h2 id="7-cac-clock-and-threshold-configuration">7. CAC Clock and
+Threshold Configuration</h2>
+<p>The reference and measurement clocks and their divisors are selected
+in the FSP configurator. The lower and upper limits must be calculated
+for those selections.</p>
+<p>Let:</p>
+<ul>
+<li><code>M</code> be the measurement-clock frequency after its
+divider.</li>
+<li><code>R</code> be the reference-clock frequency after its
+divider.</li>
+<li><code>C = M / R</code> be the expected CAC count.</li>
+<li><code>T</code> be the allowed count tolerance.</li>
+</ul>
+<p>The supplied README uses a 10% tolerance example:</p>
+<pre class="text"><code>T = C x 10 / 100
+Upper limit = C + T
+Lower limit = C - T</code></pre>
+<p>Its worked example uses:</p>
+<pre class="text"><code>Measurement clock: HOCO = 24 MHz, divider = 1
+M = 24 MHz
+
+Reference clock: Main oscillator = 12 MHz, divider = 32
+R = 12 MHz / 32
+
+Expected count:
+C = M / R = 64
+
+10% tolerance:
+T = 6.4
+
+Upper limit = 70.4
+Lower limit = 57.6</code></pre>
+<p>The limits entered in the configurator must use values supported by
+the CAC configuration fields. Choose the final integer limits according
+to the application’s required tolerance policy and the applicable
+FSP/API constraints.</p>
+<p>The supplied README warns that an excessively high reference-clock
+selection can cause repeated measurement-completion interrupts. It
+recommends using a lower reference-clock frequency or adjusting the
+reference-clock divider.</p>
+<h2 id="8-changes-required-for-another-board-or-application">8. Changes
+Required for Another Board or Application</h2>
+<h3 id="81-board-and-pins">8.1 Board and pins</h3>
+<p>The demonstrated CAC measurement uses internal clock selections and
+does not define an external GPIO pin assignment in the supplied files.
+If an external reference clock is selected, configure and connect the
+required external clock input according to the target MCU hardware
+manual, board schematic, and FSP pin configuration. The supplied files
+do not specify that board-specific external-clock connection.</p>
+<p>Replace the demo UART configuration, VCOM routing, or terminal
+service if the target board does not use the demonstrated J-Link OB VCOM
+connection.</p>
+<h3 id="82-clocks-and-divisors">8.2 Clocks and divisors</h3>
+<p>For the target board and clock tree:</p>
+<ul>
+<li>verify that each selected oscillator exists and is usable;</li>
+<li>select the reference and measurement clocks in the CAC
+configuration;</li>
+<li>configure their divisors;</li>
+<li>recalculate lower and upper thresholds; and</li>
+<li>review the CGC settings used to start each selected internal
+clock.</li>
+</ul>
+<h3 id="83-timing-and-timeout-behavior">8.3 Timing and timeout
+behavior</h3>
+<p>The core uses decrementing loop counters initialized to
+<code>UINT16_MAX</code> for both clock-stability polling and
+measurement-completion polling. These are iteration-count timeouts, not
+elapsed-time guarantees. Their actual elapsed duration depends on MCU
+clock frequency, compiler optimization, execution context, and
+peripheral behavior.</p>
+<p>If deterministic timeout duration is required, replace the polling
+loops with an application-approved timing mechanism and define a timeout
+based on the selected clocks and required response time.</p>
+<h3 id="84-memory">8.4 Memory</h3>
+<p>The supplied files do not state measured ROM, RAM, heap, or stack
+usage. The core stores volatile event/status state and a 32-bit counter
+globally. The demo additionally uses standard I/O and the UART console
+service. Measure memory use in the final build configuration if the
+product has memory limits.</p>
+<h3 id="85-task-priorities-and-rtos-integration">8.5 Task priorities and
+RTOS integration</h3>
+<p>The supplied reference application runs an endless polling loop and
+does not define RTOS tasks, priorities, mutexes, semaphores, or event
+objects. If used with an RTOS, the integrating application must define
+task ownership, priority, callback-to-task notification, timeout
+behavior, and synchronization.</p>
+<p>Because the callback updates state observed by
+<code>cac_measurement_process()</code>, ensure that the chosen
+synchronization method is safe for the application’s interrupt and task
+model.</p>
+<h3 id="86-middleware-and-console">8.6 Middleware and console</h3>
+<p>The reusable CAC core does not depend on the terminal menu. Product
+code can omit <code>cac_example_app.*</code>,
+<code>console/uart_console.h</code>, <code>printf()</code>, and
+<code>getchar()</code>.</p>
+<p>If the demo is retained, provide the UART console service and stdio
+routing assumed by the source.</p>
+<h2 id="9-dependencies-and-hardware-resources">9. Dependencies and
+Hardware Resources</h2>
+<h3 id="91-fsp-drivers">9.1 FSP drivers</h3>
+<p>The reusable core directly depends on:</p>
+<ul>
+<li>CAC driver <code>r_cac</code></li>
+<li>CGC driver <code>r_cgc</code></li>
+<li>FSP-generated configuration in <code>hal_data.h</code></li>
+</ul>
+<p>The code calls:</p>
+<pre class="text"><code>R_CGC_Open
+R_CGC_ClockStart
+R_CGC_ClockCheck
+R_CGC_Close
+R_CAC_Open
+R_CAC_StartMeasurement
+R_CAC_Read
+R_CAC_StopMeasurement
+R_CAC_Close</code></pre>
+<p>The demo additionally calls <code>R_FSP_VersionGet()</code>.</p>
+<h3 id="92-demo-services">9.2 Demo services</h3>
+<p>The reference application depends on:</p>
+<ul>
+<li><code>console/uart_console.h</code></li>
+<li><code>uart_console_init()</code></li>
+<li><code>uart_console_has_char()</code></li>
+<li><code>uart_console_flush()</code></li>
+<li>standard C <code>printf()</code> and <code>getchar()</code>
+routing</li>
+</ul>
+<h3 id="93-hardware-resources">9.3 Hardware resources</h3>
+<p>The demonstrated configuration requires:</p>
+<ul>
+<li>the selected RA board;</li>
+<li>the CAC peripheral;</li>
+<li>the selected reference and measurement clock sources;</li>
+<li>the CGC for applicable clock startup and status checking;</li>
+<li>CAC interrupt/callback operation;</li>
+<li>a USB debug/programming connection; and</li>
+<li>a UART/VCOM path for the demo application.</li>
+</ul>
+<h2 id="10-demonstrated-behavior-and-performance">10. Demonstrated
+Behavior and Performance</h2>
+<p>The supplied implementation demonstrates:</p>
+<ul>
+<li>initialization of CGC and CAC FSP drivers;</li>
+<li>startup and stability checking for selected internal clocks;</li>
+<li>interrupt/callback notification of CAC events;</li>
+<li>successful-measurement counter reading;</li>
+<li>frequency-error and overflow event handling;</li>
+<li>loop-count timeout handling; and</li>
+<li>terminal-triggered repeated measurements.</li>
+</ul>
+<p>After a successful operation, the demo reports that the selected
+target clock is accurate and prints <code>g_cac_counter_val</code>.</p>
+<p>No measured execution time, CAC accuracy, interrupt latency, CPU
+load, power consumption, ROM usage, RAM usage, or maximum measurement
+rate is provided in the supplied files. The 10% threshold in the README
+is a calculation example, not a reported accuracy measurement or a
+universal tolerance requirement.</p>
+<h2 id="11-file-classification-and-modification-guidance">11. File
+Classification and Modification Guidance</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>File or category</th>
+<th>Classification</th>
+<th>Guidance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cac_ep.h</code></td>
+<td>Reusable SBB interface</td>
+<td>Modify only when intentionally changing the reusable API, shared
+definitions, or exported state.</td>
+</tr>
+<tr>
+<td><code>cac_ep.c</code></td>
+<td>Reusable SBB implementation</td>
+<td>Modify when changing clock preparation, CAC measurement behavior,
+timeout handling, callback handling, or error mapping. Keep
+product-specific policy outside this file where practical.</td>
+</tr>
+<tr>
+<td><code>cac_example_app.h</code></td>
+<td>Demo/reference interface and terminal text</td>
+<td>Demo-only. Safe to replace or remove when the product supplies
+another application entry point or user interface.</td>
+</tr>
+<tr>
+<td><code>cac_example_app.c</code></td>
+<td>Demo/reference workflow</td>
+<td>Demo-only. Safe to replace or remove when integrating the reusable
+core into another application.</td>
+</tr>
+<tr>
+<td><code>hal_data.h</code></td>
+<td>FSP-generated interface</td>
+<td>Generated. Do not use it as the primary place for persistent manual
+configuration changes.</td>
+</tr>
+<tr>
+<td>FSP configuration and generated source</td>
+<td>Generated/preset project content</td>
+<td>Change CAC, CGC, clocks, interrupts, and callback settings through
+the FSP configurator, then regenerate.</td>
+</tr>
+<tr>
+<td>UART console and stdio integration</td>
+<td>Demo support service</td>
+<td>Retain only if the product needs the terminal demonstration or
+equivalent logging.</td>
+</tr>
+<tr>
+<td><code>readme.txt</code></td>
+<td>Supplied reference documentation</td>
+<td>Reference input consolidated by this Markdown document.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-adopting-a-newer-sbb-release-after-local-changes">12.
+Adopting a Newer SBB Release After Local Changes</h2>
+<p>The supplied files do not define an automated upgrade or
+compatibility process. Use a clear ownership boundary to reduce future
+merge effort:</p>
+<ul>
+<li>keep product-specific command handling, logging, RTOS logic, and
+error policy outside <code>cac_ep.c</code> and <code>cac_ep.h</code>
+where possible;</li>
+<li>keep board clock, CAC threshold, interrupt, and callback selections
+in the FSP configuration;</li>
+<li>avoid manually maintaining generated FSP output;</li>
+<li>record unavoidable reusable-core changes as small, focused commits;
+and</li>
+<li>keep a list of changed public interfaces and behavioral
+assumptions.</li>
+</ul>
+<p>When adopting a newer SBB release:</p>
+<ol type="1">
+<li>Preserve the current project and generated configuration as a
+comparison baseline.</li>
+<li>Compare the new <code>cac_ep.h</code> and <code>cac_ep.c</code> with
+the locally modified versions.</li>
+<li>Reapply only required product changes rather than replacing the new
+core with the old modified copy.</li>
+<li>Reconcile the CAC, CGC, clock, interrupt, callback, and threshold
+configuration in FSP.</li>
+<li>Regenerate the project configuration.</li>
+<li>Rebuild and resolve API or generated-instance differences.</li>
+<li>Revalidate successful completion, frequency-error handling, timeout
+behavior, counter values, and cleanup on the target hardware.</li>
+</ol>
+<h2 id="13-running-the-reference-application">13. Running the Reference
+Application</h2>
+<ol type="1">
+<li>Connect the board’s USB debug port to the host PC.</li>
+<li>For FPB-RA2E3, close E25, E28, E46, and E47 for J-Link OB VCOM.</li>
+<li>Verify the configured reference clock, measurement clock, divisors,
+and CAC limits.</li>
+<li>Build and program the project.</li>
+<li>Open the serial terminal using 115200 baud, 8 data bits, no parity,
+1 stop bit, and no flow control.</li>
+<li>Enable CR for receive/transmit newline handling and enable local
+echo.</li>
+<li>Run the application.</li>
+<li>Press any key to perform one CAC measurement.</li>
+<li>Review the completion message and displayed CAC counter value.</li>
+</ol>
+<h2 id="14-integration-summary">14. Integration Summary</h2>
+<p>For product reuse, begin with <code>cac_init()</code> and
+<code>cac_measurement_process()</code> in the core layer. Replace the
+polling terminal application with the product’s own trigger, reporting,
+synchronization, and error-handling logic. Recalculate CAC thresholds
+whenever the reference clock, measurement clock, divider, or acceptable
+tolerance changes, and validate the resulting configuration on the
+selected board.</p>
+</body>
+</html>
